@@ -65,50 +65,50 @@
 -type ezk_authreply()    :: {ok, authed} | {error, auth_failed} |
                             {error, unknown, binary()} | {error,  auth_in_progress}.
 
--spec create/3 :: (ezk_conpid(), ezk_path(), ezk_data()) ->
+-spec create(ezk_conpid(), ezk_path(), ezk_data()) ->
                   {ok, ezk_path()} | {error, ezk_err()}.
--spec create/4 :: (ezk_conpid(), ezk_path(), ezk_data(), ezk_ctype()) ->
+-spec create(ezk_conpid(), ezk_path(), ezk_data(), ezk_ctype()) ->
                   {ok, ezk_path()} | {error, ezk_err()}.
--spec create/5 :: (ezk_conpid(), ezk_path(), ezk_data(), ezk_ctype(), ezk_acls()) ->
+-spec create(ezk_conpid(), ezk_path(), ezk_data(), ezk_ctype(), ezk_acls()) ->
                   {ok, ezk_path()} | {error, ezk_err()}.
--spec ensure_path/2 :: (ezk_conpid(), ezk_path()) ->
+-spec ensure_path(ezk_conpid(), ezk_path()) ->
                        {ok, ezk_path()} | {error, ezk_err()}.
--spec delete/2 :: (ezk_conpid(), ezk_path()) ->
+-spec delete(ezk_conpid(), ezk_path()) ->
                   {ok, ezk_path()} | {error, ezk_err()}.
--spec delete_all/2 ::  (ezk_conpid(), ezk_path()) ->
+-spec delete_all(ezk_conpid(), ezk_path()) ->
                        {ok, ezk_path()} | {error, ezk_err()}.
--spec exists/2 :: (ezk_conpid(), ezk_path()) ->
+-spec exists(ezk_conpid(), ezk_path()) ->
                   {ok, ezk_getdata()} | {error, ezk_err()}.
--spec exists/4 :: (ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
+-spec exists(ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
                   {ok, ezk_getdata()} | {error, ezk_err()}.
--spec ls/2     :: (ezk_conpid(), ezk_path()) ->
+-spec ls(ezk_conpid(), ezk_path()) ->
                   {ok, [ezk_path()]} | {error, ezk_err()}.
--spec ls/4     :: (ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
+-spec ls(ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
                   {ok, [ezk_path()]} | {error, ezk_err()}.
--spec ls2/2    :: (ezk_conpid(), ezk_path()) ->
+-spec ls2(ezk_conpid(), ezk_path()) ->
                   {ok, [ezk_ls2data()]} | {error, ezk_err()}.
--spec ls2/4    :: (ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
+-spec ls2(ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
                   {ok, [ezk_ls2data()]} | {error, ezk_err()}.
--spec get/2    :: (ezk_conpid(), ezk_path()) ->
+-spec get(ezk_conpid(), ezk_path()) ->
                   {ok, {ezk_data(), ezk_getdata()}} | {error, ezk_err()}.
--spec get/4    :: (ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
+-spec get(ezk_conpid(), ezk_path(), ezk_watchowner(), ezk_watchmessage()) ->
                   {ok, {ezk_data(), ezk_getdata()}} | {error, ezk_err()}.
--spec set/3    :: (ezk_conpid(), ezk_path(), ezk_data()) ->
+-spec set(ezk_conpid(), ezk_path(), ezk_data()) ->
                   {ok, ezk_getdata()} | {error, ezk_err()}.
--spec set_acl/3:: (ezk_conpid(), ezk_path(), ezk_acls()) ->
+-spec set_acl(ezk_conpid(), ezk_path(), ezk_acls()) ->
                   {ok, ezk_getdata()}.
--spec get_acl/2:: (ezk_conpid, ezk_path()) ->
+-spec get_acl(ezk_conpid, ezk_path()) ->
                   {ok, {ezk_acls(), ezk_getdata()}}.
 
--spec start_connection/0 :: () -> {ok, ezk_conpid()} | {error, no_server_reached}.
--spec start_connection/1 :: ([ezk_server()]) ->
+-spec start_connection() -> {ok, ezk_conpid()} | {error, no_server_reached}.
+-spec start_connection([ezk_server()]) ->
                             {ok, ezk_conpid()} |
                             {error, no_server_reached}.
--spec end_connection/2   :: (ezk_conpid(), string()) -> ok | {error, no_connection}.
--spec add_monitors/2     :: (ezk_conpid(), [pid()])  -> ok.
--spec get_connections/0     :: () -> [{ezk_conpid(), [ezk_monitor()]}].
--spec info_get_iterations/1 :: (ezk_conpid()) -> integer().
--spec auth/3                :: (ezk_conpid(), ezk_acl_scheme(), ezk_acl_id()) ->
+-spec end_connection(ezk_conpid(), string()) -> ok | {error, no_connection}.
+-spec add_monitors(ezk_conpid(), [pid()])  -> ok.
+-spec get_connections() -> [{ezk_conpid(), [ezk_monitor()]}].
+-spec info_get_iterations(ezk_conpid()) -> integer().
+-spec auth(ezk_conpid(), ezk_acl_scheme(), ezk_acl_id()) ->
                                ezk_authreply().
 
 help() ->
